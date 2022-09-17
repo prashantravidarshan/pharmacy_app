@@ -65,10 +65,12 @@ const UserDropdown = () => {
         </Center>
         <br />
         <MenuDivider />
-        <Link href="/client/dashboard">
+        <Link href="/dashboard">
           <MenuItem>Dashboard</MenuItem>
         </Link>
-        <MenuItem>Profile</MenuItem>
+        <Link href="/profile">
+          <MenuItem>Profile</MenuItem>
+        </Link>
         <MenuItem>Account Settings</MenuItem>
         <MenuItem
           onClick={() => {
