@@ -1,9 +1,8 @@
+import { Box } from "@chakra-ui/react";
 import ClientLayout from "../../layouts/client";
 
 const Dashboard = () => {
-  return {
-    /* Add content here  */
-  };
+  return <Box></Box>;
 };
 
 export default Dashboard;
