@@ -1,6 +1,7 @@
 import {
   Avatar,
   Box,
+  Button,
   Drawer,
   DrawerContent,
   DrawerOverlay,
@@ -11,6 +12,7 @@ import {
   InputGroup,
   InputLeftElement,
   Text,
+  useColorMode,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -20,6 +22,7 @@ import SidebarContent from "./SidebarContent";
 
 const Dashboard = () => {
   const sidebar = useDisclosure();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Box
@@ -82,7 +85,10 @@ const Dashboard = () => {
           </InputGroup>
 
           <Flex align="center">
-            <Icon color="gray.500" as={FaBell} cursor="pointer" />
+            <Icon color="gray.500" as={FaBell} cursor="pointer" mr={4} />
+            <Button onClick={toggleColorMode}>
+              Toggle {colorMode === "light" ? "Dark" : "Light"}
+            </Button>
             <Avatar
               ml="4"
               size="sm"
