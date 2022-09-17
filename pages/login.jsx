@@ -12,6 +12,8 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { getSession } from "next-auth/react";
+import SocialSignIn from "./SocialSignIn";
 
 export default function SimpleCard() {
   return (
@@ -63,8 +65,29 @@ export default function SimpleCard() {
               </Button>
             </Stack>
           </Stack>
+          <Heading alignSelf="center" as="h4" size="md">
+            OR
+          </Heading>
+          <SocialSignIn />
         </Box>
       </Stack>
     </Flex>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/dashboard",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 }

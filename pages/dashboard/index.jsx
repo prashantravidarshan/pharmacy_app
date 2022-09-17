@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 
 import { FiMenu, FiBeer, FaSearch, FaBell, FaRss } from "react-icons/fa";
+import UserDropdown from "../../components/UserDropdown";
 import SidebarContent from "./SidebarContent";
 
 const Dashboard = () => {
@@ -84,18 +85,12 @@ const Dashboard = () => {
             <Input placeholder="Search for..." />
           </InputGroup>
 
-          <Flex align="center">
-            <Icon color="gray.500" as={FaBell} cursor="pointer" mr={4} />
+          <Flex align="center" gap={4}>
+            <Icon color="gray.500" as={FaBell} cursor="pointer" />
             <Button onClick={toggleColorMode}>
               Toggle {colorMode === "light" ? "Dark" : "Light"}
             </Button>
-            <Avatar
-              ml="4"
-              size="sm"
-              name="anubra266"
-              src="https://avatars.githubusercontent.com/u/30869823?v=4"
-              cursor="pointer"
-            />
+            <UserDropdown />
           </Flex>
         </Flex>
 
