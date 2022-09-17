@@ -12,7 +12,8 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { getSession } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
+import { FaGoogle } from "react-icons/fa";
 import SocialSignIn from "./SocialSignIn";
 
 export default function SimpleCard() {
@@ -63,12 +64,20 @@ export default function SimpleCard() {
               >
                 Sign in
               </Button>
+              <Heading alignSelf="center" as="h4" size="md">
+                OR
+              </Heading>
+              <Button
+                bg="#ea4335"
+                color="white"
+                title="google"
+                onClick={() => signIn("google")}
+              >
+                <FaGoogle size="16" />
+                <Text ml={4}>Sign In With Google</Text>
+              </Button>
             </Stack>
           </Stack>
-          <Heading alignSelf="center" as="h4" size="md">
-            OR
-          </Heading>
-          <SocialSignIn />
         </Box>
       </Stack>
     </Flex>
