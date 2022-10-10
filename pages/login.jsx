@@ -13,10 +13,15 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { getSession, signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 import { FaGoogle } from "react-icons/fa";
 import SocialSignIn from "./SocialSignIn";
 
-export default function SimpleCard() {
+export default function Login() {
+  const router = useRouter();
+  const handleLogin = () => {
+    router.replace("/dashboard");
+  };
   return (
     <Flex
       minH={"100vh"}
@@ -61,6 +66,7 @@ export default function SimpleCard() {
                 _hover={{
                   bg: "blue.500",
                 }}
+                onClick={handleLogin}
               >
                 Sign in
               </Button>
